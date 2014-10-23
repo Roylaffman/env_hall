@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{%  load staticfiles %}
+<head>
+{% block title %}List Page!{% endblock %}
+{% block morehead %}
+<script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.css' rel='stylesheet' />
+<style>#map {position: absolute; top: 100px; right: 400px; left: 400px; bottom: 100px; width: 50%}</style>
+{%  endblock %}
+
+</head>
+
+{% block content %}
+<div class="row clearfix">
+    <div class="col-md-12-column">
+        <div id="map"></div>
+    </div>
+</div>
+
+{% endblock %}
+{% block morescripts %}
+    <script>
+    var map = L.mapbox.map('map', 'crswint.jljp9epk');
+
+{#    $.getJSON("{% url 'units:counties' %}", function (data) {#}
+{#        L.getJSON(data, {style: county_style}).addTo(map);#}
+{#    }};#}
+    </script>
+{% endblock %}

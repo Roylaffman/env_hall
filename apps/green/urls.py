@@ -8,4 +8,5 @@ urlpatterns = patterns('',
 
     #url(r'^admin/', include(admin.site.urls)),
     url(r'main$', views.MainView.as_view()),
+    url(r'center_map$', views.MapView.as_view()),
 )

@@ -7,9 +7,13 @@
     <link href="{% static "bootstrap/css/bootstrap.css" %}" rel="stylesheet">
 
     {% block morehead %}
+        <style>
 
+{#        #map { position:absolute; top:52px; right:10px; left:0; bottom:0; width:100%; }#}
+        </style>
+        <script src="'https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.js"></script>
+        <link href="https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.css" rel="stylesheet" />
     {% endblock %}
-
 </head>
 
 <body>
@@ -20,5 +24,12 @@
 <script src="{% static "bootstrap/js/bootstrap.min.js" %}"></script>
 
 </body>
+{% block morescripts %}
+{#    <script>#}
+{#    var map = L.mapbox.map('map',#}
+{#                           'crswint.jhm4p47h',#}
+{#                            {maxZoom: 22});#}
+{#    </script>#}
+{% endblock %}
 
 </html>
