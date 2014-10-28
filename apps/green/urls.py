@@ -7,6 +7,6 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     #url(r'^admin/', include(admin.site.urls)),
-    url(r'main$', views.MainView.as_view()),
-    url(r'center_map$', views.MapView.as_view()),
+    url(r'^main/', views.MainView.as_view(), name='main'),
+    url(r'^center_map/', views.MapView.as_view(), name='center_map'),
 )
