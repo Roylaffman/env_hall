@@ -9,4 +9,5 @@ urlpatterns = patterns('',
     #url(r'^admin/', include(admin.site.urls)),
     url(r'^main/', views.MainView.as_view(), name='main'),
     url(r'^center_map/', views.MapView.as_view(), name='center_map'),
+    url(r'^produce/', views.ProduceMapView.as_view(), name='produce'),
 )

@@ -11,3 +11,7 @@ class MainView(generic.TemplateView):
 
 class MapView(generic.TemplateView):
     template_name = 'green/center_map.html'
+
+
+class ProduceMapView(generic.TemplateView):
+    template_name = 'green/produce.html'
