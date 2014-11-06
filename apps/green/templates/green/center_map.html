@@ -21,10 +21,25 @@
 {% endblock %}
 {% block morescripts %}
     <script>
+    var ouricon = {
+            radius: 6,
+            fillColor: "#0B0B61",
+            color: "#0A0A2A",
+            weight: 1,
+            opacity: 1,
+            fillOpacity: 0.7
+    };
+
     var map = L.mapbox.map('map', 'crswint.jljp9epk');
 
-{#    $.getJSON("{% url 'units:counties' %}", function (data) {#}
-{#        L.getJSON(data, {style: county_style}).addTo(map);#}
-{#    }};#}
+
+    $.getJSON("{% url 'api:centers' %}", function (data) {
+        L.geoJson(data, {style: ouricon}).addTo(map);
+
+    });
+{#    L.marker.bindPopup("<b>Recycling Center!</b><br>Address coming soon.").openPopup();#}
+
+
+
     </script>
 {% endblock %}
