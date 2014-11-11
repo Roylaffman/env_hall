@@ -37,6 +37,31 @@
         L.geoJson(data, {style: ouricon}).addTo(map);
 
     });
+
+    $.getJSON("{% url 'api:centers' %}", function (data) {
+
+        L.geoJson(data, {style: ouricon,
+
+            onEachFeature: function(feature, layer){
+
+                (function(layer,properties) {
+
+                    layer.on("click", function (e) {
+
+                        var popup = L.popup().setLatLng(e.latlng)
+
+                                .setContent('<a href="http://www.google.com/maps/dir/">' + properties.address + '</a>')
+
+                                .openOn(map);
+
+                    });
+
+                }) (layer, feature.properties);
+
+    }}).addTo(map);
+
+
+    });
 {#    L.marker.bindPopup("<b>Recycling Center!</b><br>Address coming soon.").openPopup();#}
 
 

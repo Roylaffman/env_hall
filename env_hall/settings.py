@@ -66,7 +66,7 @@ DATABASES = {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
         'NAME': 'gisc4530k',
         'USER': 'postgres',
-        'PASSWORD': 'geografio',
+        'PASSWORD': 'placeholder',
         'HOST': 'localhost',
         'PORT': 5432,
     }
