@@ -10,8 +10,10 @@ class MainView(generic.TemplateView):
 
 
 class MapView(generic.TemplateView):
+    """Loads the recycling center map page."""
     template_name = 'green/center_map.html'
 
 
 class ProduceMapView(generic.TemplateView):
+    """Loads the produce map page."""
     template_name = 'green/produce.html'

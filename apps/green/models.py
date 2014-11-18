@@ -23,6 +23,7 @@ class Center(models.Model):
     scrapMetal = models.BooleanField(default=False)
 
     def __str__(self):
+        """This displays the model by name on the admin page."""
         return "{}".format(self.name)
 
 
