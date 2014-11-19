@@ -10,6 +10,12 @@ class GreenSerializer(geoserializers.GeoFeatureModelSerializer):
         fields = ('id', 'name', 'address', 'lon', 'lat')
 
 
+class StandSerializer(geoserializers.GeoFeatureModelSerializer):
+    class Meta:
+        model = models.Stand
+        geo_field = 'geom'
+        fields = ('id', 'address', 'lon', 'lat', 'descript')
+
 # class CountySerializer(geoserializers.GeoFeatureModelSerializer):
 #     class Meta:
 #         model = models.County

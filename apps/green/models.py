@@ -29,12 +29,11 @@ class Center(models.Model):
 
 class Stand(models.Model):
     """This model holds produce stands."""
-    name = models.CharField(max_length=40)
-    address = models.CharField(max_length=200)
-    lon = models.FloatField()
-    lat = models.FloatField()
+    name = models.CharField("Owner: ", max_length=40)
+    address = models.CharField("Address: ", max_length=200)
     geom = models.PointField(srid=4326)
-    descript = models.CharField(max_length=200)
+    descript = models.CharField("Available Produce: ", max_length=200)
 
     def __str__(self):
         return "{}".format(self.name)
+
