@@ -19,17 +19,27 @@ class MarkerFilter(django_filters.FilterSet):
         fields = ('id', 'name')
 
 
-# class CountFilter(django_filters.FilterSet):
-#     id = IntegerListFilter(name='id', lookup_type='in')
-#
-#     class Meta:
-#         model = models.County
-#         fields = ['id', 'name']
+class StandFilter(django_filters.FilterSet):
+    id = IntegerListFilter(name='id', lookup_type='in')
+
+    class Meta:
+        model = models.Stand
+        fields = ('id', 'name')
+
 
 class CenterCollection(generics.ListAPIView):
     """
-    API endpoint that allows users to be viewed or edited.
+    API endpoint that allows recycling centers to be viewed or edited.
     """
     queryset = models.Center.objects.all()
     serializer_class = serializers.GreenSerializer
     filter_class = MarkerFilter
+
+
+class StandCollection(generics.ListAPIView):
+    """
+    API endpoint that allows produce stands to be viewed or edited.
+    """
+    queryset = models.Stand.objects.all()
+    serializer_class = serializers.StandSerializer
+    filter_class = StandFilter

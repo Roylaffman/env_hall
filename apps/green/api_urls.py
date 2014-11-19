@@ -7,5 +7,6 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     #url(r'^admin/', include(admin.site.urls)),
-    url(r'green', json_views.CenterCollection.as_view(), name='centers'),
+    url(r'center', json_views.CenterCollection.as_view(), name='centers'),
+    url(r'stand', json_views.StandCollection.as_view(), name='stands'),
 )

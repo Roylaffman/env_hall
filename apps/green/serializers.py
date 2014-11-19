@@ -14,10 +14,6 @@ class StandSerializer(geoserializers.GeoFeatureModelSerializer):
     class Meta:
         model = models.Stand
         geo_field = 'geom'
-        fields = ('id', 'address', 'lon', 'lat', 'descript')
+        fields = ('id', 'name', 'address', 'descript')
 
-# class CountySerializer(geoserializers.GeoFeatureModelSerializer):
-#     class Meta:
-#         model = models.County
-#         geo_field = 'geom'
-#         fields = ('id', 'name')
+
