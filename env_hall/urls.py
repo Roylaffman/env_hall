@@ -1,5 +1,5 @@
 from django.conf.urls import patterns, include, url
-from django.contrib import admin
+from django.contrib.gis import admin
 
 
 api_patterns = patterns('',
@@ -15,4 +15,7 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^green/', include('apps.green.urls', namespace='green')),
     url(r'^api/v1/', include(api_patterns, namespace='api')),
+    url(r'^add_point/$', 'apps.green.views.add_point'),
+    url(r'^add_point/error$', 'apps.green.views.form_error'),
+    url(r'^add_point/success$', 'apps.green.views.form_success'),
 )
