@@ -21,7 +21,47 @@
 {% endblock %}
 {% block morescripts %}
     <script>
+    var ouricon = {
+            radius: 6,
+            fillColor: "#0B0B61",
+            color: "#0A0A2A",
+            weight: 1,
+            opacity: 1,
+            fillOpacity: 0.7
+    };
+
     var map = L.mapbox.map('map', 'crswint.jljp9epk');
+
+    $.getJSON("{% url 'api:stands' %}", function (data) {
+        L.geoJson(data, {style: ouricon}).addTo(map);
+
+    });
+
+    $.getJSON("{% url 'api:stands' %}", function (data) {
+
+        L.geoJson(data, {style: ouricon,
+
+            onEachFeature: function(feature, layer){
+
+                (function(layer,properties) {
+
+                    layer.on("click", function (e) {
+
+                        var popup = L.popup().setLatLng(e.latlng)
+
+                                .setContent('<a href="http://www.google.com/maps/dir/">' + properties.address + properties.descript +'</a>')
+
+                                .openOn(map);
+
+                    });
+
+                }) (layer, feature.properties);
+
+    }}).addTo(map);
+
+
+    });
+
 
 {#    $.getJSON("{% url 'units:counties' %}", function (data) {#}
 {#        L.getJSON(data, {style: county_style}).addTo(map);#}
