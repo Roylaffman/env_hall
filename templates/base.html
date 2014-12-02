@@ -28,9 +28,13 @@
 				<li>
 					<a href="/green/produce/">Produce Stands</a>
 				</li>
+                {% if user.is_authenticated %}
 				<li>
 					<a href="/add_point/">Add your own Produce Stand!</a>
 				</li>
+                {% else %}
+                 <li><a href="/accounts/register/">Register to add your own Stand!</a></li>
+                {% endif %}
 				<li class="dropdown pull-right">
 					 <a href="#" data-toggle="dropdown" class="dropdown-toggle">Recyclable Items<strong class="caret"></strong></a>
 					<ul class="dropdown-menu">

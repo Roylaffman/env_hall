@@ -41,7 +41,14 @@ INSTALLED_APPS = (
     'rest_framework_gis',
     'bootstrap',
     'apps.green',
+    'registration'
 )
+
+LOGIN_REDIRECT_URL = '/green/main/'
+
+ABSOLUTE_URL_OVERRIDES = {
+    'auth.user': lambda u: "/",
+    }
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
