@@ -35,6 +35,18 @@
                 {% else %}
                  <li><a href="/accounts/register/">Register to add your own Stand!</a></li>
                 {% endif %}
+
+                {% if user.is_authenticated %}
+                    <li class="pull-right">
+					<a href="/accounts/logout/">Logout</a>
+				    </li>
+
+                {% else %}
+                    <li class="pull-right">
+					<a href="/accounts/login/">Login</a>
+				    </li>
+                {% endif %}
+
 				<li class="dropdown pull-right">
 					 <a href="#" data-toggle="dropdown" class="dropdown-toggle">Recyclable Items<strong class="caret"></strong></a>
 					<ul class="dropdown-menu">
