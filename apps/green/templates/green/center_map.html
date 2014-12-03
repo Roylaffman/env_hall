@@ -1,17 +1,35 @@
 {% extends 'base.html' %}
 {%  load staticfiles %}
+
 <head>
 {% block title %}Recycling Centers{% endblock %}
 {% block morehead %}
 <script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.js'></script>
 <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.css' rel='stylesheet' />
-<style>#map {position: absolute; top: 50px; right: 0px; left: 100px; bottom: 50px; width: 75%}</style>
+<style>#map {position: absolute; top: 50px; right: 0px; left: 100px; bottom: 50px; width: 75%}
+    .ui-select {
+  background:#fff;
+  position:absolute;
+  top:10px;
+  right:10px;
+  z-index:100;
+  padding:10px;
+  border-radius:3px;
+  }
+</style>
 {%  endblock %}
-
 </head>
 
 {% block content %}
 
+<div id='filters' class='ui-select'>
+  <div><input type='checkbox' checked=checked class='filter'
+             name='filter' id='paper' value='paper'/><label for='paper'>fast-food</label></div>
+  <div><input type='checkbox' checked=checked class='filter'
+             name='filter' id='bicycle' value='bicycle'/><label for='bicycle'>bicycle</label></div>
+  <div><input type='checkbox' checked=checked class='filter'
+             name='filter' id='bar' value='bar'/><label for='bar'>bar</label></div>
+</div>
 <div class="row clearfix">
     <div class="col-md-12-column">
         <div id="map"></div>
@@ -19,8 +37,10 @@
 </div>
 
 {% endblock %}
+
 {% block morescripts %}
     <script>
+
     var ouricon = {
             radius: 6,
             fillColor: "#0B0B61",
@@ -31,17 +51,25 @@
     };
 
     var map = L.mapbox.map('map', 'crswint.jljp9epk');
+    var filters = document.getElementById('filters');
+    var checkboxes = document.getElementsByClassName('filter');
 
 
-    $.getJSON("{% url 'api:centers' %}", function (data) {
-        L.geoJson(data, {style: ouricon}).addTo(map);
-
-    });
+{#    $.getJSON("{% url 'api:centers' %}", function (data) {#}
+{#        L.geoJson(data, {style: ouricon}).addTo(map);#}
+{##}
+{#    });#}
 
     $.getJSON("{% url 'api:centers' %}", function (data) {
 
         L.geoJson(data, {style: ouricon,
 
+{#            filter: function (f) {#}
+{#            // check each marker's symbol to see if its value is in the list#}
+{#            // of symbols that should be on, stored in the 'on' array#}
+{#            console.log(f.properties);#}
+{#            return on.indexOf(f.properties['paper']) !== false;#}
+{#            },#}
             onEachFeature: function(feature, layer){
 
                 (function(layer,properties) {
@@ -50,7 +78,7 @@
 
                         var popup = L.popup().setLatLng(e.latlng)
 
-                                .setContent('<a href="http://www.google.com/maps/dir/">' + properties.address + '</a>')
+                                .setContent('<a href="http://www.google.com/maps/dir/">' + properties.address + ' ' + properties.paper + '</a>')
 
                                 .openOn(map);
 
@@ -63,9 +91,31 @@
 
     });
 
+{#    L.mapbox.featureLayer().loadURL('{% url 'api:centers' %}').addTo(map);#}
+{#    console.log(map.featureLayer.properties);#}
 
-{#    L.marker.bindPopup("<b>Recycling Center!</b><br>Address coming soon.").openPopup();#}
+    function change() {
+        // Find all checkboxes that are checked and build a list of their values
+        console.log('change');
+        var on = [];
+        for (var i = 0; i < checkboxes.length; i++) {
+            if (checkboxes[i].checked) on.push(checkboxes[i].value);
+    }
+        // The filter function takes a GeoJSON feature object
+        // and returns true to show it or false to hide it.
+        map.featureLayer.setFilter(function (f) {
+            // check each marker's symbol to see if its value is in the list
+            // of symbols that should be on, stored in the 'on' array
+            console.log(f.properties);
+            return on.indexOf(f.properties['paper']) !== false;
+    });
+        return false;
+}
 
+    // When the form is touched, re-filter markers
+    filters.onchange = change;
+    // Initially filter the markers
+    change();
 
 
     </script>

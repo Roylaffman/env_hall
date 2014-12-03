@@ -7,7 +7,7 @@ class GreenSerializer(geoserializers.GeoFeatureModelSerializer):
     class Meta:
         model = models.Center
         geo_field = 'geom'
-        fields = ('id', 'name', 'address', 'lon', 'lat')
+        fields = ('id', 'name', 'address', 'lon', 'lat', 'paper')
 
 
 class StandSerializer(geoserializers.GeoFeatureModelSerializer):
