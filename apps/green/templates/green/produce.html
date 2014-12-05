@@ -49,7 +49,7 @@
                         console.log(properties)
                         var popup = L.popup().setLatLng(e.latlng)
 
-                                .setContent('<a href="http://www.127.0.0.800/api/v1/stand?name=' + properties.name + "'>" + properties.descript + '</a>')
+                                .setContent('<a href="http://127.0.0.1:8000/api/v1/produce?name=' + properties.id + '">' + properties.address + '</a>')
 
                                 .openOn(map);
 

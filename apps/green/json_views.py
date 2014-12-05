@@ -27,6 +27,14 @@ class StandFilter(django_filters.FilterSet):
         fields = ('id', 'name')
 
 
+class ProduceFilter(django_filters.FilterSet):
+    id = IntegerListFilter(name='id', lookup_type='in')
+
+    class Meta:
+        model = models.Produce
+        fields = ('id', 'name')
+
+
 class CenterCollection(generics.ListAPIView):
     """
     API endpoint that allows recycling centers to be viewed or edited.
@@ -43,3 +51,12 @@ class StandCollection(generics.ListAPIView):
     queryset = models.Stand.objects.all()
     serializer_class = serializers.StandSerializer
     filter_class = StandFilter
+
+
+class ProduceCollection(generics.ListAPIView):
+    """
+    API endpoint that allows recycling centers to be viewed or edited.
+    """
+    queryset = models.Produce.objects.all()
+    serializer_class = serializers.ProduceSerializer
+    filter_class = ProduceFilter

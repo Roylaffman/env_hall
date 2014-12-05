@@ -17,3 +17,9 @@ class StandSerializer(geoserializers.GeoFeatureModelSerializer):
         fields = ('id', 'name', 'address', 'descript')
 
 
+class ProduceSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Produce
+        fields = ('id', 'name', 'vegg', 'fruit', 'craft')
+
+
