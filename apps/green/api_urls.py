@@ -9,4 +9,5 @@ urlpatterns = patterns('',
     #url(r'^admin/', include(admin.site.urls)),
     url(r'center', json_views.CenterCollection.as_view(), name='centers'),
     url(r'stand', json_views.StandCollection.as_view(), name='stands'),
+    url(r'stand', json_views.ProduceCollection.as_view(), name='produce'),
 )

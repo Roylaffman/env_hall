@@ -46,10 +46,10 @@
                 (function(layer,properties) {
 
                     layer.on("click", function (e) {
-
+                        console.log(properties)
                         var popup = L.popup().setLatLng(e.latlng)
 
-                                .setContent('<a href="http://www.google.com/maps/dir/">' + properties.descript + '</a>')
+                                .setContent('<a href="http://www.127.0.0.800/api/v1/stand?name=' + properties.name + "'>" + properties.descript + '</a>')
 
                                 .openOn(map);
 

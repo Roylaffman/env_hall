@@ -18,3 +18,26 @@ class AddStandForm(forms.Form):
         descript = cleaned_data.get("descript")
 
         return cleaned_data
+
+
+class AddProdForm(forms.ModelForm):
+
+    class Meta:
+        model = Produce
+        fields = ['name', 'vegg', 'fruit', 'craft']
+
+
+    # name = forms.ChoiceField()
+    # vegg = forms.BooleanField()
+    # fruit = forms.BooleanField()
+    # craft = forms.BooleanField()
+    #
+    # def clean(self):
+    #     cleaned_data = self.cleaned_data
+    #
+    #     name = cleaned_data.get("name")
+    #     vegg = cleaned_data.get("vegg")
+    #     fruit = cleaned_data.get("fruit")
+    #     craft = cleaned_data.get("craft")
+    #
+    #     return cleaned_data

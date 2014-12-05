@@ -36,6 +36,34 @@ def add_point(request):
     return render_to_response('green/add_point.html', args)
 
 
+def add_prod(request):
+
+    if request.method == 'POST':
+        form = AddProdForm(request.POST)
+        if form.is_valid():
+            new_point = Produce()
+            cd = form.cleaned_data
+            new_point.name = cd['name']
+
+            new_point.vegg = cd['vegg']
+            new_point.fruit = cd['fruit']
+            new_point.craft = cd['craft']
+
+            new_point.save()
+            return HttpResponseRedirect('/add_point/success')
+
+        else:
+            return HttpResponseRedirect('/add_point/error')
+    else:
+        form = AddProdForm()
+
+    args = {}
+    args.update(csrf(request))
+    args['form'] = AddProdForm()
+
+    return render_to_response('green/add_prod.html', args)
+
+
 def form_error(request):
     return render_to_response('green/form_error.html')
 

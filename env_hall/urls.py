@@ -20,4 +20,6 @@ urlpatterns = patterns('',
     url(r'^add_point/error$', 'apps.green.views.form_error'),
     url(r'^add_point/success$', 'apps.green.views.form_success'),
     url(r'^accounts/', include('registration.backends.simple.urls')),
+    url(r'^add_prod/$', 'apps.green.views.add_prod'),
+
 )
