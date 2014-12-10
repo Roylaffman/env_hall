@@ -78,7 +78,7 @@
 
                         var popup = L.popup().setLatLng(e.latlng)
 
-                                .setContent('<a href="http://www.google.com/maps/dir/">' + properties.address + ' ' + properties.paper + '</a>')
+                                .setContent('<a href="http://www.google.com/maps/dir/' + properties.address + '">' + properties.address + '</a>')
 
                                 .openOn(map);
 
