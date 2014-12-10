@@ -5,4 +5,5 @@ from apps.green import models
 
 admin.site.register(models.Stand, admin.OSMGeoAdmin)
 admin.site.register(models.Center)
+admin.site.register(models.Produce)
 # we want to see this model in the admin page, above code does this

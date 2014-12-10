@@ -38,19 +38,10 @@ class Stand(models.Model):
         return "{}".format(self.name)
 
 
-class MemberDetails(models.Model):
-    """This model manages extra details about a member."""
-    name = models.ForeignKey(User)
-    joindate = models.DateField()
-    memberlevel = models.CharField(max_length=10)
-
-    def __str__(self):
-        return "{}".format(self.name)
-
-
 class Produce(models.Model):
     """This model will hold produce information as it relates to Stands"""
     name = models.ForeignKey(Stand)
     vegg = models.BooleanField(default=False)
     fruit = models.BooleanField(default=False)
     craft = models.BooleanField(default=False)
+

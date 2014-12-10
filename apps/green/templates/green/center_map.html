@@ -22,7 +22,7 @@
 
 {% block content %}
 
-<div id='filters' class='ui-select'>
+<div id='filters' class='ui-select' style="margin-top: 120px; margin-right: 60px">
   <div><input type='checkbox' checked=checked class='filter'
              name='filter' id='paper' value='paper'/><label for='paper'>fast-food</label></div>
   <div><input type='checkbox' checked=checked class='filter'
@@ -78,7 +78,7 @@
 
                         var popup = L.popup().setLatLng(e.latlng)
 
-                                .setContent('<a href="http://www.google.com/maps/dir/' + properties.address + '">' + properties.address + '</a>')
+                                .setContent('<a href="http://www.google.com/maps/dir//' + properties.address + '">' + properties.address + '</a>')
 
                                 .openOn(map);
 

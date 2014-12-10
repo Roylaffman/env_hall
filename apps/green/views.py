@@ -1,11 +1,11 @@
 from django.shortcuts import render
 from django.views import generic
-from models import *
 from forms import *
 from django.shortcuts import render_to_response
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.context_processors import csrf
 from django.contrib.gis.geos import Point
+from apps.green import models
 
 
 def add_point(request):
@@ -85,3 +85,8 @@ class MapView(generic.TemplateView):
 class ProduceMapView(generic.TemplateView):
     """Loads the produce map page."""
     template_name = 'green/produce.html'
+
+
+class ProduceInfoView(generic.ListView):
+    model = models.Produce
+    template_name = 'green/produce_stand.html'

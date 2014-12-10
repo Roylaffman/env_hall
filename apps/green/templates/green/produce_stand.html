@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}Produce Stand Info{% endblock %}
+
+{% block content %}
+<h1>
+Produce Stand info
+</h1>
+<ul>
+{% for produce in object_list %}
+<li><a href="{%  url 'green:produce_stand' produce.pk %}">{{ produce.vegg }}</a></li>
+
+{% endfor %}
+</ul>
+
+
+{% endblock %}
