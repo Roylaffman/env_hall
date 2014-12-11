@@ -78,7 +78,9 @@
 
                         var popup = L.popup().setLatLng(e.latlng)
 
-                                .setContent('<a href="http://www.google.com/maps/dir//' + properties.address + '">' + properties.address + '</a>')
+                                .setContent('<a href="http://www.google.com/maps/dir//' + properties.address + '">'
+                                        + properties.address + '<br>'
+                                         +'<a href="http://127.0.0.1:8000/api/v1/center?id=' + feature.id + '">Recyclable Items! </a>')
 
                                 .openOn(map);
 
