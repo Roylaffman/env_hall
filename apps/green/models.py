@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 
 class Center(models.Model):
-    """This model holds recycling centers"""
+    """This model holds recycling centers."""
     name = models.CharField(max_length=40)
     address = models.CharField(max_length=200)
     lon = models.FloatField()
@@ -35,6 +35,7 @@ class Stand(models.Model):
     descript = models.CharField("Available Produce: ", max_length=200)
 
     def __str__(self):
+        """This displays the model by name on the admin page."""
         return "{}".format(self.name)
 
 

@@ -9,7 +9,7 @@ from apps.green import models
 
 
 def add_point(request):
-
+    """ Function used to add data to the stand model via POST."""
     if request.method == 'POST':
         form = AddStandForm(request.POST)
         if form.is_valid():
@@ -37,7 +37,7 @@ def add_point(request):
 
 
 def add_prod(request):
-
+    """ Function used to add data to produce model via POST."""
     if request.method == 'POST':
         form = AddProdForm(request.POST)
         if form.is_valid():
@@ -65,10 +65,12 @@ def add_prod(request):
 
 
 def form_error(request):
+    """ Loads this error page when there is a problem with the form the user just tried to submit."""
     return render_to_response('green/form_error.html')
 
 
 def form_success(request):
+    """ Loads this page when form successfully posted to the database."""
     return render_to_response('green/form_success.html')
 
 
@@ -88,5 +90,6 @@ class ProduceMapView(generic.TemplateView):
 
 
 class ProduceInfoView(generic.ListView):
+    #Does not currently load anything.  Needs to be integrated with API json data.
     model = models.Produce
     template_name = 'green/produce_stand.html'

@@ -4,6 +4,7 @@ from rest_framework_gis import serializers as geoserializers
 
 
 class GreenSerializer(geoserializers.GeoFeatureModelSerializer):
+    """ Serializer used in API set up off the Center model."""
     class Meta:
         model = models.Center
         geo_field = 'geom'
@@ -12,6 +13,7 @@ class GreenSerializer(geoserializers.GeoFeatureModelSerializer):
 
 
 class StandSerializer(geoserializers.GeoFeatureModelSerializer):
+    """ Serializer used in API set up of the Stand model."""
     class Meta:
         model = models.Stand
         geo_field = 'geom'
@@ -19,6 +21,7 @@ class StandSerializer(geoserializers.GeoFeatureModelSerializer):
 
 
 class ProduceSerializer(serializers.ModelSerializer):
+    """ Serializer used in API set up of the Produce model."""
     class Meta:
         model = models.Produce
         fields = ('id', 'name', 'vegg', 'fruit', 'craft')

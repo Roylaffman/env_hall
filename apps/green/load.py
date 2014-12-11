@@ -2,6 +2,7 @@ import os
 from django.contrib.gis.utils import LayerMapping
 from apps.green.models import Center
 
+# Generic load file used in the GeoDjango tutorial.  Left in case more GeoDjango data needs loading
 center_mapping = {
     'name' : 'name',
     'address' : 'address',

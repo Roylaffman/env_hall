@@ -3,8 +3,8 @@ from apps.green.models import Center
 import django
 django.setup()
 
+#Custom load file created to load Center model into database
 center_path = 'C:/Users/crswin5726/PycharmProjects/env_hall/apps/green/data/centers.shp'
-#person_path = 'C:/Users/Crystal/Desktop/ShapefileEdits/Person_Master.shp'
 
 sf = shapefile.Reader(center_path)
 sr = sf.shapeRecords()

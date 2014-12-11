@@ -12,6 +12,7 @@ class IntegerListFilter(django_filters.Filter):
 
 
 class MarkerFilter(django_filters.FilterSet):
+    """ Filter used for the Center model."""
     id = IntegerListFilter(name='id', lookup_type='in')
 
     class Meta:
@@ -20,6 +21,7 @@ class MarkerFilter(django_filters.FilterSet):
 
 
 class StandFilter(django_filters.FilterSet):
+    """ Filter used for the Stand model."""
     id = IntegerListFilter(name='id', lookup_type='in')
 
     class Meta:
@@ -28,6 +30,7 @@ class StandFilter(django_filters.FilterSet):
 
 
 class ProduceFilter(django_filters.FilterSet):
+    """ Filter used for the Produce model."""
     id = IntegerListFilter(name='id', lookup_type='in')
 
     class Meta:

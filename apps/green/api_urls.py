@@ -6,7 +6,6 @@ urlpatterns = patterns('',
     # url(r'^$', 'gisc2.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
-    #url(r'^admin/', include(admin.site.urls)),
     url(r'center', json_views.CenterCollection.as_view(), name='centers'),
     url(r'stand', json_views.StandCollection.as_view(), name='stands'),
     url(r'produce', json_views.ProduceCollection.as_view(), name='produce'),

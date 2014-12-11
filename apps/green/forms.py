@@ -3,7 +3,7 @@ from models import *
 
 
 class AddStandForm(forms.Form):
-
+    """ Form that allows users to add a Stand model to the database."""
     coordinates = forms.CharField(max_length=200, required=True)
     name = forms.CharField(max_length=40, required=True)
     address = forms.CharField(max_length=200, required=True)
@@ -21,23 +21,7 @@ class AddStandForm(forms.Form):
 
 
 class AddProdForm(forms.ModelForm):
-
+    """ Form that allows users to add a Produce model to the database."""
     class Meta:
         model = Produce
         fields = ['name', 'vegg', 'fruit', 'craft']
-
-
-    # name = forms.ChoiceField()
-    # vegg = forms.BooleanField()
-    # fruit = forms.BooleanField()
-    # craft = forms.BooleanField()
-    #
-    # def clean(self):
-    #     cleaned_data = self.cleaned_data
-    #
-    #     name = cleaned_data.get("name")
-    #     vegg = cleaned_data.get("vegg")
-    #     fruit = cleaned_data.get("fruit")
-    #     craft = cleaned_data.get("craft")
-    #
-    #     return cleaned_data
